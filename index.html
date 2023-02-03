@@ -40,7 +40,7 @@
           </li>
           <li class="list-group-item list-group-item-action">sdiowoweijw@hotamil.com|dsdhijsoiwe</li>
           <li class="list-group-item list-group-item-action">ssdiiowe@hotamil.com|dddddsd</li>
-          <li class="list-group-item list-group-item-action">ddleoeoe@hotamil.com|dsodosdo</li>
+          <li class="list-group-item list-group-item-action">oiowei23i23iojs@hotmail.com|Az123123123</li>
           <li class="list-group-item list-group-item-danger">
             ddwwe@hotamil.com|dococjdiod
           </li>
@@ -61,7 +61,8 @@
         <div class="alert alert-primary text-center" role="alert" id="hotmail-use">
           ssdiiowe@hotamil.com|dddddsd
         </div>
-        <div id="function-div" class="btn-group d-flex justify-content-center" role="group" aria-label="Basic radio toggle button group">
+        <div id="function-div" class="btn-group d-flex justify-content-center" role="group"
+          aria-label="Basic radio toggle button group">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
           <label class="btn btn-outline-primary" for="btnradio1">All mail</label>
 
@@ -72,16 +73,34 @@
           <label class="btn btn-outline-primary" for="btnradio3">Check Live Stripe</label>
         </div>
         <div class="container" id="result">
-          <div class="loader ">
+          <div class="loader d-none" id="loader">
             <div class="inner one"></div>
             <div class="inner two"></div>
             <div class="inner three"></div>
           </div>
-          <div class="d-none">
-            <!-- Content here -->
-
-
+          <div id="messageContent"  class="modal fade"tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="messageContentSubject">Mail Subject</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p id="messageContentBody">This is a vertically centered modal.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary d-none">Save changes</button>
+                </div>
+              </div>
+            </div>
           </div>
+          <button id="messageContentButton" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#messageContent"></button>
+          <ol id="message" class="d-noned list-group list-group-numbered list-group-item-action">
+            <!-- Content here -->
+            <li><p style="display: inline-block">Date:</p>      Subject: This is subject</li>
+          </ol>
         </div>
       </div>
       <!-- <div class="col">Column</div> -->
