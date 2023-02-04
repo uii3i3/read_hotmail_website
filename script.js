@@ -10,12 +10,12 @@ function addMessage(messages){
     messageElm  = document.getElementById('message')
     if (messageElm.classList.contains('d-none'))
         messageElm.classList.remove('d-none')
+    index = 0
     for (var message of messages){
-        h1 = document.createElement('h1')
-        h1.innerText = message.From
-        messageElm.appendChild(h1)
-        // document.getElementById('message')
-        // doc
+        mes = document.createElement('div')
+        mes.innerHTML = `<li id="${index}"class="list-group-item list-group-item-action">Date: ${message.Date}       Subject: ${message.Subject}</li>`
+        messageElm.appendChild(mes.firstChild)
+        index ++
     }
 }
 function getDataSuccess(data, account){
@@ -23,10 +23,11 @@ function getDataSuccess(data, account){
     hotmailUseElm = document.querySelector('#hotmail-use')
     hotmailUseElm.innerText = account
     if (data.status === 200){
+        window.messages = data.message
         hotmailUseElm.classList.add('alert-success')
         addMessage(data.message)
     }else{
-        hotmailUseElm.classList.add('alert-primary')
+        hotmailUseElm.classList.add('alert-danger')
     }
 }
 function getAllMail(account){
@@ -61,13 +62,24 @@ async function test(){
 document.addEventListener("DOMContentLoaded", () => {
   hotmailListDiv = document.getElementById("hotmail-list");
     functionDiv = document.getElementById("function-div");
+    messageDiv = document.getElementById('message')
+    importBtn = document.getElementById('importHotmailBtn')
   // click hotmail list
     hotmailListDiv.addEventListener('click', (event)=>{
         if (event.target.tagName === 'LI'){
-            hotmailListDiv.querySelector('.active').classList.remove('active')
+            try{
+                hotmailListDiv.querySelector('.active').classList.remove('active')
+            }
+            catch(err){}
             event.target.classList.add('active')
             account = event.target.innerText
             // disable content element
+            if (document.querySelector('#hotmail-use').classList.contains('alert-success'))
+            document.querySelector('#hotmail-use').classList.remove('alert-success')
+            if (document.querySelector('#hotmail-use').classList.contains('alert-danger'))
+            document.querySelector('#hotmail-use').classList.remove('alert-danger')
+            document.querySelector('#hotmail-use').innerText = 'Checking: ' + account
+            document.querySelector('#message').innerHTML = ''
 
             getAllMail(account)
         }
@@ -78,6 +90,52 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(event.target.innerText)
         }
         // console.log(event.target.querySelector('label').innerText)
+    })
+    // mess li click
+    messageDiv.addEventListener('click', (event)=>{
+        if (event.target.tagName === 'LI'){
+            // edit modal
+            index = parseInt(event.target.id)
+            mess = window.messages[index]
+            document.getElementById('messageContentSubject').innerText = mess.Subject
+
+            iframeElm = document.createElement('iframe')
+            iframeElm.srcdoc = mess.Content
+            // iframeElm.setAttribute("style","width:800px");
+            document.getElementById('messageContentBody').innerHTML = ''
+            document.getElementById('messageContentBody').appendChild(iframeElm)
+
+
+            // iframeElm = document.createElement('iframe')
+            // iframeElm.body.innerHTML = mess.Content
+            // document.getElementById('messageContentBody').appendChild(iframeElm)
+            // document.getElementById('messageContentBody').innerHTML = mess.Content
+
+            // show modal
+            document.getElementById('messageContentButton').click()
+
+        }
+    })
+    // import hotmail
+    importBtn.addEventListener('click',(event)=>{
+        // document.getElementById('inputHotmailText').textContent
+        inputHotMailText = document.getElementById('inputHotmailText').value.trim()
+        if (!inputHotMailText)
+            return
+        accounts = document.getElementById('inputHotmailText').value.split('\n')
+        // show list
+        hotmailListDiv = document.getElementById('hotmail-list')
+        if (hotmailListDiv.classList.contains('d-none'))
+            hotmailListDiv.classList.remove('d-none')
+        // delete old
+        document.getElementById('hotmailOl').innerHTML = ''
+        // add hotmails
+
+        for (var account of accounts){
+            acc = document.createElement('div')
+            acc.innerHTML = `<li class="list-group-item list-group-item-action">${account}</li>`
+            document.getElementById('hotmailOl').appendChild(acc.firstChild)
+        }
     })
 });
 

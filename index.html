@@ -29,16 +29,15 @@
     >
     100% wide until small breakpoint
   </div> -->
-  <div class="container"></div>
   <div class="container">
     <h1 class="text-center">Read Hotmail</h1>
     <div class="row">
-      <div class="col-md-auto" id="hotmail-list">
-        <ol class="list-group list-group-numbered list-group-item-action">
-          <li class="list-group-item active">
-            dwioeioweo@hotmail.com|hdusishu
+      <div class="col-md-auto d-none" id="hotmail-list">
+        <ol id="hotmailOl" class="list-group list-group-numbered list-group-item-action">
+          <li class="list-group-item">
+            example@hotmail.com|password
           </li>
-          <li class="list-group-item list-group-item-action">sdiowoweijw@hotamil.com|dsdhijsoiwe</li>
+          <!-- <li class="list-group-item list-group-item-action">sdiowoweijw@hotamil.com|dsdhijsoiwe</li>
           <li class="list-group-item list-group-item-action">ssdiiowe@hotamil.com|dddddsd</li>
           <li class="list-group-item list-group-item-action">oiowei23i23iojs@hotmail.com|Az123123123</li>
           <li class="list-group-item list-group-item-danger">
@@ -54,12 +53,12 @@
           <li class="list-group-item list-group-item-action">ssdiiowe@hotamil.com|dddddsd</li>
           <li class="list-group-item list-group-item-action">ddleoeoe@hotamil.com|dsodosdo</li>
           <li class="list-group-item list-group-item-action">ddwwe@hotamil.com|dococjdiod</li>
-          <li class="list-group-item list-group-item-action">ddooewowe@hotamil.com|xoonenkee</li>
+          <li class="list-group-item list-group-item-action">ddooewowe@hotamil.com|xoonenkee</li> -->
         </ol>
       </div>
       <div class="col">
         <div class="alert alert-primary text-center" role="alert" id="hotmail-use">
-          ssdiiowe@hotamil.com|dddddsd
+          Select a account
         </div>
         <div id="function-div" class="btn-group d-flex justify-content-center" role="group"
           aria-label="Basic radio toggle button group">
@@ -72,7 +71,7 @@
           <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" />
           <label class="btn btn-outline-primary" for="btnradio3">Check Live Stripe</label>
         </div>
-        <div class="container" id="result">
+        <div id="result">
           <div class="loader d-none" id="loader">
             <div class="inner one"></div>
             <div class="inner two"></div>
@@ -80,33 +79,51 @@
           </div>
           <div id="messageContent"  class="modal fade"tabindex="-1" aria-labelledby="exampleModalCenterTitle"
             style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div id="modalContent"  class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="messageContentSubject">Mail Subject</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  <p id="messageContentBody">This is a vertically centered modal.</p>
+                <div class="modal-body" id="messageContentBody">
+                  <!-- <p >Mail Body</p> -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary d-none">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
           <button id="messageContentButton" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#messageContent"></button>
-          <ol id="message" class="d-noned list-group list-group-numbered list-group-item-action">
+          <div id="message" class="d-noned list-group list-group-numbered">
             <!-- Content here -->
-            <li><p style="display: inline-block">Date:</p>      Subject: This is subject</li>
-          </ol>
+          </div>
         </div>
       </div>
       <!-- <div class="col">Column</div> -->
     </div>
   </div>
-
+  <div class="container text-center">
+        <div id="importHotmailModal"  class="modal fade"tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5">Enter mail</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <textarea class="form-control" id="inputHotmailText" rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button id="importHotmailBtn"  type="button" class="btn btn-primary"  data-bs-dismiss="modal">Import</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importHotmailModal">Import Hotmail</button>
+  </div>
   </div>
 
 </body>
