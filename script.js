@@ -13,7 +13,12 @@ function addMessage(messages){
     index = 0
     for (var message of messages){
         mes = document.createElement('div')
-        mes.innerHTML = `<li id="${index}"class="list-group-item list-group-item-action">Date: ${message.Date}       Subject: ${message.Subject}</li>`
+        mes.innerHTML = `<li id="${index}" class="list-group-item list-group-item-action">
+              <div class="row align-items-center">
+                <div class="col-6">${index + 1}. ${message.Subject.slice(0,40)}${(message.Subject.length > 40) ? '...': ''}</div>
+                <div class="col-3">From: ${message.From}</div>
+                <div class="col-3">${message.Date.split(' ').slice(0,5).join(' ')}</div>
+        </li>`
         messageElm.appendChild(mes.firstChild)
         index ++
     }
@@ -93,9 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     // mess li click
     messageDiv.addEventListener('click', (event)=>{
-        if (event.target.tagName === 'LI'){
+        if (event.target.closest('li')){
             // edit modal
-            index = parseInt(event.target.id)
+            index = parseInt(event.target.closest('li').id)
             mess = window.messages[index]
             document.getElementById('messageContentSubject').innerText = mess.Subject
 
@@ -139,4 +144,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 });
 
-test()
+// test()

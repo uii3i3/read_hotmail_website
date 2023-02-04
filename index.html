@@ -77,10 +77,10 @@
             <div class="inner two"></div>
             <div class="inner three"></div>
           </div>
-          <div id="messageContent"  class="modal fade"tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+          <div id="messageContent" class="modal fade" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
             style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
-              <div id="modalContent"  class="modal-content">
+              <div id="modalContent" class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="messageContentSubject">Mail Subject</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -94,35 +94,50 @@
               </div>
             </div>
           </div>
-          <button id="messageContentButton" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#messageContent"></button>
-          <div id="message" class="d-noned list-group list-group-numbered">
+          <button id="messageContentButton" type="button" class="btn btn-primary d-none" data-bs-toggle="modal"
+            data-bs-target="#messageContent"></button>
+          <div id="message" class="list-group">
             <!-- Content here -->
+            <li id="${index}" class="list-group-item list-group-item-action">
+              <div class="row align-items-center">
+                <div class="col-6">1 .This is subject sent by Thoams</div>
+                <div class="col-3">From: thoasmhenk@gmail.com</div>
+                <div class="col-3">Mon, 32 Jen 2023</div>
+            </li>
+            <li id="${index}" class="list-group-item list-group-item-action">
+              <div class="row align-items-center">
+                <div class="col-6">2 . Subject: This is subject sent by Thoams</div>
+                <div class="col-3">From: thoasmhenk@gmail.com</div>
+                <div class="col-3 text-right">Mon, 32 Jen 2023</div>
+            </li>
           </div>
         </div>
       </div>
-      <!-- <div class="col">Column</div> -->
     </div>
+    <!-- <div class="col">Column</div> -->
+  </div>
   </div>
   <div class="container text-center">
-        <div id="importHotmailModal"  class="modal fade"tabindex="-1" aria-labelledby="exampleModalCenterTitle"
-            style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5">Enter mail</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <textarea class="form-control" id="inputHotmailText" rows="10"></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button id="importHotmailBtn"  type="button" class="btn btn-primary"  data-bs-dismiss="modal">Import</button>
-                </div>
-              </div>
-            </div>
+    <div id="importHotmailModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+      style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Enter mail</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importHotmailModal">Import Hotmail</button>
+          <div class="modal-body">
+            <textarea class="form-control" id="inputHotmailText" rows="10"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="importHotmailBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Import</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importHotmailModal">Import
+      Hotmail</button>
   </div>
   </div>
 
