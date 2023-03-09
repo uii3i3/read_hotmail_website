@@ -57,7 +57,7 @@ function getAllMail(account){
     redirect: 'follow'
     };
 
-    fetch(`https://utopian-delightful-pruner.glitch.me/get-message/${account}/${task}`, requestOptions)
+    fetch(`http://103.140.251.212:5003/get-message/${account}/${task}`, requestOptions)
     // fetch(`http://192.168.2.10:5003/get-message/${account}/${task}`, requestOptions)
     .then(response => response.json())
     .then(result => getDataSuccess(result,account))
